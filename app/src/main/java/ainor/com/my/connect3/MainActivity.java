@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
     // 0 = yellow, 1 = red
     int activePlayer = 0;
 
+    boolean gameisActive = true;
+
     // 2 means nothing in the slot
 
     int [] gameState = {2,2,2,2,2,2,2,2,2};
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        if (gameState[tappedCounter] == 2 ) {
+        if (gameState[tappedCounter] == 2 && gameisActive) {
 
             gameState[tappedCounter] = activePlayer;
 
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
                     // someone has won
 
+                    gameisActive = false;
+
                         String winner = "Red";
 
                     if (gameState[winningPosition[0]] == 0) {
@@ -68,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void playAgain(View view) {
+
+        gameisActive = true;
 
         LinearLayout layout = (LinearLayout) findViewById(R.id.playAgainLayout);
         layout.setVisibility(View.INVISIBLE);
