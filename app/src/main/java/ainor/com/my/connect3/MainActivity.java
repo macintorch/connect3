@@ -10,8 +10,17 @@ public class MainActivity extends AppCompatActivity {
     // 0 = yellow, 1 = red
     int activePlayer = 0;
 
+
+    // TODO: 15/12/2016  stop user to replace the color
+
+    // 2 means nothing in the slot
+
+    int [] gameState = {2,2,2,2,2,2,2,2,2};
+
     public void dropIn (View view) {
         ImageView counter = (ImageView) view;
+
+        System.out.println(counter.getTag().toString());
 
         counter.setTranslationY(-1000f);
 
